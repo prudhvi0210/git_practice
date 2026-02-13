@@ -1,0 +1,25 @@
+name: Python Hello World Test
+
+# Trigger: When do we run?
+on: [push]
+
+jobs:
+  build-and-test:
+    # Environment: The computer we borrow from GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Download your code from the repo
+    - uses: actions/checkout@v3
+
+    # Step 2: Install Python 3.9
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # Step 3: Run your script
+    - name: Run App Script
+      run: |
+        echo "The Robot is waking up..."
+        python app.py
